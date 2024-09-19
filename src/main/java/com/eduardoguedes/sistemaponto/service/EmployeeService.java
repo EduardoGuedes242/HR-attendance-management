@@ -3,6 +3,7 @@ package com.eduardoguedes.sistemaponto.service;
 import com.eduardoguedes.sistemaponto.entity.Employee;
 import com.eduardoguedes.sistemaponto.repository.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,5 +20,10 @@ public class EmployeeService {
 
   public void createEmployee(Employee employee) {
     employeeRepository.save(employee);
+  }
+
+
+  public List<Employee> findAllEmployeeCpnId() {
+    return employeeRepository.findByCpnId(2l);
   }
 }

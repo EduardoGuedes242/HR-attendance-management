@@ -5,7 +5,10 @@ import jakarta.persistence.*;
 @Table(name = "company")
 public class Company {
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long cpn_id;
+
+  @Column(name = "cpn_id")
+  private Long CpnId;
+
   private String cpn_name;
   private String cpn_cnpj;
   private String cpn_email;
@@ -13,20 +16,20 @@ public class Company {
 
   public Company() {}
 
-  public Company(long cpn_id, String cpn_name, String cpn_cnpj, String cpn_email, String cpn_date) {
-    this.cpn_id = cpn_id;
+  public Company(long CpnId, String cpn_name, String cpn_cnpj, String cpn_email, String cpn_date) {
+    this.CpnId = CpnId;
     this.cpn_name = cpn_name;
     this.cpn_cnpj = cpn_cnpj;
     this.cpn_email = cpn_email;
     this.cpn_date = cpn_date;
   }
 
-  public long getCpn_id() {
-    return cpn_id;
+  public long getCpnId() {
+    return CpnId;
   }
 
-  public void setCpn_id(long cpn_id) {
-    this.cpn_id = cpn_id;
+  public void setCpnId(long cpn_id) {
+    this.CpnId = CpnId;
   }
 
   public String getCpn_name() {

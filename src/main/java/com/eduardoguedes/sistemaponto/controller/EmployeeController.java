@@ -19,6 +19,11 @@ public class EmployeeController {
     return employeeService.findAllEmployee();
   }
 
+  @GetMapping("/teste")
+  public List<Employee> getAllEmployeesCpnId() {
+    return employeeService.findAllEmployeeCpnId();
+  }
+
   @PostMapping
   public void createEmployee(@RequestBody Employee employee) {
     employeeService.createEmployee(employee);

@@ -10,7 +10,10 @@ public class Employee {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long ely_id;
-  private Long cpn_id;
+
+  @Column(name = "cpn_id")
+  private Long cpnId;
+
   private Long dpt_id;
   private String ely_name;
   private String ely_cpf;
@@ -19,9 +22,9 @@ public class Employee {
 
   public Employee() {}
 
-  public Employee(Long ely_id, Long cpn_id, Long dpt_id, String ely_name, String ely_cpf, String ely_email, Date ely_date_birth) {
+  public Employee(Long ely_id, Long cpnId, Long dpt_id, String ely_name, String ely_cpf, String ely_email, Date ely_date_birth) {
     this.ely_id = ely_id;
-    this.cpn_id = cpn_id;
+    this.cpnId = cpnId;
     this.dpt_id = dpt_id;
     this.ely_name = ely_name;
     this.ely_cpf = ely_cpf;
@@ -37,13 +40,13 @@ public class Employee {
     this.ely_id = ely_id;
   }
 
-  public Long getCpn_id() {
-    return cpn_id;
-  }
-  public void setCpn_id(Long cpn_id) {
-    this.cpn_id = cpn_id;
+  public long getCpnId() {
+    return cpnId;
   }
 
+  public void setCpnId(long cpnId) {
+    this.cpnId = cpnId;
+  }
   public Long getDpt_id() {
     return dpt_id;
   }
