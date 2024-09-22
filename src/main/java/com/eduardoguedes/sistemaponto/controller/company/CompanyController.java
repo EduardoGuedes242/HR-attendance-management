@@ -1,7 +1,7 @@
-package com.eduardoguedes.sistemaponto.controller;
+package com.eduardoguedes.sistemaponto.controller.company;
 
-import com.eduardoguedes.sistemaponto.entity.Company;
-import com.eduardoguedes.sistemaponto.service.CompanyService;
+import com.eduardoguedes.sistemaponto.entity.company.Company;
+import com.eduardoguedes.sistemaponto.service.company.CompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

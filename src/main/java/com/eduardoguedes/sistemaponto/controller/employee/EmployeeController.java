@@ -1,7 +1,7 @@
-package com.eduardoguedes.sistemaponto.controller;
+package com.eduardoguedes.sistemaponto.controller.employee;
 
-import com.eduardoguedes.sistemaponto.entity.Employee;
-import com.eduardoguedes.sistemaponto.service.EmployeeService;
+import com.eduardoguedes.sistemaponto.entity.employee.Employee;
+import com.eduardoguedes.sistemaponto.service.employee.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 

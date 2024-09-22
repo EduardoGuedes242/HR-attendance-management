@@ -1,4 +1,4 @@
-package com.eduardoguedes.sistemaponto.entity;
+package com.eduardoguedes.sistemaponto.entity.departament;
 
 import jakarta.persistence.*;
 

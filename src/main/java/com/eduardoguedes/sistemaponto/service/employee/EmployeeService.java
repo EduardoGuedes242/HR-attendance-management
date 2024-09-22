@@ -1,9 +1,8 @@
-package com.eduardoguedes.sistemaponto.service;
+package com.eduardoguedes.sistemaponto.service.employee;
 
-import com.eduardoguedes.sistemaponto.entity.Employee;
-import com.eduardoguedes.sistemaponto.repository.EmployeeRepository;
+import com.eduardoguedes.sistemaponto.entity.employee.Employee;
+import com.eduardoguedes.sistemaponto.repository.employee.EmployeeRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
