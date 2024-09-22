@@ -13,8 +13,8 @@ public class DepartmentService {
   @Autowired
   private DepartmentRepository departmentRepository;
 
-  public List<Department> findAllDepartment() {
-    return departmentRepository.findAll();
+  public List<Department> findAllDepartment(Long cpnId) {
+    return departmentRepository.findByCpnId(cpnId);
   }
 
   public void createDepartment(Department department) {

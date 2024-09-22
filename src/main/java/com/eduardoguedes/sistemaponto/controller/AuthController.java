@@ -6,16 +6,14 @@ import com.eduardoguedes.sistemaponto.entity.users.TokenDTO;
 import com.eduardoguedes.sistemaponto.entity.users.Users;
 import com.eduardoguedes.sistemaponto.infra.security.TokenService;
 import com.eduardoguedes.sistemaponto.service.users.UsersService;
+import jakarta.servlet.http.HttpServletRequest;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -40,6 +38,16 @@ public class AuthController {
     var token = tokenService.generateToken((Users) auth.getPrincipal());
 
     return ResponseEntity.ok(new TokenDTO(token));
+  }
+
+  @GetMapping("/cpn")
+  public String cpn(HttpServletRequest request) {
+
+    String token = tokenService.recoverToken(request);
+
+    Long cpnId = tokenService.getCpnIdFromToken(token);
+
+    return "O cpn do user é: "+ cpnId;
   }
 
   @PostMapping("/register")

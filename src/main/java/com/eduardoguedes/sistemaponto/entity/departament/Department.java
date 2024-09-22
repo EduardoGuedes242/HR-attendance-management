@@ -8,14 +8,17 @@ public class Department {
 
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long dpt_id;
-  private Long cpn_id;
+
+  @Column(name = "cpn_id")
+  private Long cpnId;
+
   private String dpt_description;
 
   public Department() {}
 
-  public Department(Long dpt_id, Long cpn_id, String dpt_description) {
+  public Department(Long dpt_id, Long cpnId, String dpt_description) {
     this.dpt_id = dpt_id;
-    this.cpn_id = cpn_id;
+    this.cpnId = cpnId;
     this.dpt_description = dpt_description;
   }
 
@@ -27,12 +30,12 @@ public class Department {
     this.dpt_id = dpt_id;
   }
 
-  public Long getCpn_id() {
-    return cpn_id;
+  public Long getCpnId() {
+    return cpnId;
   }
 
-  public void setCpn_id(Long cpn_id) {
-    this.cpn_id = cpn_id;
+  public void setCpnId(Long cpnId) {
+    this.cpnId = cpnId;
   }
 
   public String getDpt_description() {
