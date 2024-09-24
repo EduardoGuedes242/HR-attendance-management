@@ -29,7 +29,10 @@ public class DepartmentController {
   }
 
   @PostMapping
-  public void createDepartment(@RequestBody Department department) {
+  public void createDepartment(@RequestBody Department department, HttpServletRequest request) {
+    String token = tokenService.recoverToken(request);
+    Long cpnId = tokenService.getCpnIdFromToken(token);
+    department.setCpnId(cpnId);
     departmentService.createDepartment(department);
   }
 

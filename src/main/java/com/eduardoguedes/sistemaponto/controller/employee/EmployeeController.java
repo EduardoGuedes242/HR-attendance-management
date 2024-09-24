@@ -28,7 +28,11 @@ public class EmployeeController {
   }
 
   @PostMapping
-  public void createEmployee(@RequestBody Employee employee) {
+  public void createEmployee(@RequestBody Employee employee, HttpServletRequest request) {
+    String token = tokenService.recoverToken(request);
+    Long cpnId = tokenService.getCpnIdFromToken(token);
+
+    employee.setCpnId(cpnId);
     employeeService.createEmployee(employee);
   }
 }
