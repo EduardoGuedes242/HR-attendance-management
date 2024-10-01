@@ -6,7 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
-@OpenAPIDefinition(info = @Info(title = "HR - System", version = "1", description = "Sistema de controle de funcionarios"))
+@OpenAPIDefinition(info = @Info(title = "HR attendance management", version = "1", description = "Sistema de controle de funcionarios"))
 @SpringBootApplication
 public class SistemapontoApplication {
 

@@ -32,6 +32,13 @@ public class Company {
     this.cpnDate = cpnDate;
   }
 
+  public Company(CompanyRequestDTO companyDTO) {
+    this.cpnName = companyDTO.cpnName();
+    this.cpnCnpj = companyDTO.cpnCnpj();
+    this.cpnEmail = companyDTO.cpnEmail();
+    this.cpnDate = companyDTO.cpnDate();
+  }
+
   public Long getCpnId() {
     return cpnId;
   }

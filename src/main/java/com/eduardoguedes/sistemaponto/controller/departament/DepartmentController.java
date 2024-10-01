@@ -23,7 +23,7 @@ public class DepartmentController {
   private TokenService tokenService;
 
 
-  @Operation(summary = "Cria uma nova empresa", method = "POST")
+  @Operation(summary = "Get all Departments for IdCompany", method = "GET")
   @ApiResponses(value = {
           @ApiResponse(responseCode = "200", description = "Empresa criada com sucesso"),
           @ApiResponse(responseCode = "422", description = "Dados invalidos"),
@@ -38,11 +38,13 @@ public class DepartmentController {
     return departmentService.findAllDepartment(cpnId);
   }
 
+  @Operation(summary = "New register Department", method = "POST")
   @PostMapping
-  public void createDepartment(@RequestBody Department department, HttpServletRequest request) {
+  public void createDepartment(@RequestBody String dptDescription, HttpServletRequest request) {
     String token = tokenService.recoverToken(request);
     Long cpnId = tokenService.getCpnIdFromToken(token);
-    department.setCpnId(cpnId);
+
+    Department department = new Department(cpnId, dptDescription);
     departmentService.createDepartment(department);
   }
 

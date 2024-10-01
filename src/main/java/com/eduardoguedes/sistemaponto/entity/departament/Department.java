@@ -5,29 +5,35 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "department")
 public class Department {
-
   @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long dpt_id;
+  @Column(name = "dpt_id")
+  private Long dptId;
 
   @Column(name = "cpn_id")
   private Long cpnId;
 
-  private String dpt_description;
+  @Column(name = "dpt_description")
+  private String dptDescription;
 
   public Department() {}
 
-  public Department(Long dpt_id, Long cpnId, String dpt_description) {
-    this.dpt_id = dpt_id;
+  public Department(Long dptId, Long cpnId, String dptDescription) {
+    this.dptId = dptId;
     this.cpnId = cpnId;
-    this.dpt_description = dpt_description;
+    this.dptDescription = dptDescription;
   }
 
-  public Long getDpt_id() {
-    return dpt_id;
+  public Department(Long cpnId, String dptDescription) {
+    this.cpnId = cpnId;
+    this.dptDescription = dptDescription;
   }
 
-  public void setDpt_id(Long dpt_id) {
-    this.dpt_id = dpt_id;
+  public Long getDptId() {
+    return dptId;
+  }
+
+  public void setDptId(Long dptId) {
+    this.dptId = dptId;
   }
 
   public Long getCpnId() {
@@ -38,11 +44,11 @@ public class Department {
     this.cpnId = cpnId;
   }
 
-  public String getDpt_description() {
-    return dpt_description;
+  public String getDptDescription() {
+    return dptDescription;
   }
 
-  public void setDpt_description(String dpt_description) {
-    this.dpt_description = dpt_description;
+  public void setDptDescription(String dptDescription) {
+    this.dptDescription = dptDescription;
   }
 }
