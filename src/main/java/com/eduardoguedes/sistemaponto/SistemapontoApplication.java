@@ -5,8 +5,7 @@ import io.swagger.v3.oas.annotations.info.Info;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-
-@OpenAPIDefinition(info = @Info(title = "HR attendance management", version = "1", description = "Sistema de controle de funcionarios"))
+@OpenAPIDefinition(info = @Info(title = "HR attendance management", version = "1", description = "System of control de employees"))
 @SpringBootApplication
 public class SistemapontoApplication {
 

@@ -23,9 +23,9 @@ public class Department {
     this.dptDescription = dptDescription;
   }
 
-  public Department(Long cpnId, String dptDescription) {
+  public Department(Long cpnId, DepartmentRequestDTO departmentDTO) {
     this.cpnId = cpnId;
-    this.dptDescription = dptDescription;
+    this.dptDescription = departmentDTO.description();
   }
 
   public Long getDptId() {

@@ -1,11 +1,13 @@
 package com.eduardoguedes.sistemaponto.controller.departament;
 
 import com.eduardoguedes.sistemaponto.entity.departament.Department;
+import com.eduardoguedes.sistemaponto.entity.departament.DepartmentRequestDTO;
 import com.eduardoguedes.sistemaponto.infra.security.TokenService;
 import com.eduardoguedes.sistemaponto.service.departament.DepartmentService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.security.SecurityRequirement;
 import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -38,13 +40,24 @@ public class DepartmentController {
     return departmentService.findAllDepartment(cpnId);
   }
 
-  @Operation(summary = "New register Department", method = "POST")
+  @Operation(summary = "Register new department",
+          method = "POST",
+          security = @SecurityRequirement(name = "bearerAuth"),
+          description = "This Method is using to register new department"
+
+  )
+  @ApiResponses(value = {
+          @ApiResponse(responseCode = "201", description = "New department register with success"),
+          @ApiResponse(responseCode = "400", description = "Data invalid"),
+          @ApiResponse(responseCode = "403", description = "User not authenticated"),
+          @ApiResponse(responseCode = "500", description = "Problem server"),
+  })
   @PostMapping
-  public void createDepartment(@RequestBody String dptDescription, HttpServletRequest request) {
+  public void createDepartment(@RequestBody DepartmentRequestDTO departmentDTO, HttpServletRequest request) {
     String token = tokenService.recoverToken(request);
     Long cpnId = tokenService.getCpnIdFromToken(token);
 
-    Department department = new Department(cpnId, dptDescription);
+    Department department = new Department(cpnId, departmentDTO);
     departmentService.createDepartment(department);
   }
 

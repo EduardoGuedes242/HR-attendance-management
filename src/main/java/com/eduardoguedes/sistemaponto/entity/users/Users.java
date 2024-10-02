@@ -43,12 +43,12 @@ public class Users implements UserDetails {
     this.usrRole = usrRole;
   }
 
-  public Users(Long cpnId, String usrName, String usrLogin, String usrPassword, UsersRole usrRole) {
-    this.cpnId = cpnId;
-    this.usrName = usrName;
-    this.usrLogin = usrLogin;
-    this.usrPassword = usrPassword;
-    this.usrRole = usrRole;
+  public Users(RegisterDTO registerDTO) {
+    this.cpnId = registerDTO.cpnId();
+    this.usrName = registerDTO.name();
+    this.usrLogin = registerDTO.login();
+    this.usrPassword = registerDTO.login();
+    this.usrRole = registerDTO.role();
   }
 
   public Long getUsrId() {

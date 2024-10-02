@@ -8,13 +8,12 @@ import java.util.Date;
 
 public record CompanyRequestDTO(
         @NotBlank(message = "Name is required")
-        String cpnName,
+        String name,
 
         @NotBlank(message = "Number document is requerid")
         @CNPJ(message = "Invalid CNPJ format")
-        String cpnCnpj,
+        String cnpj,
 
+        @NotBlank(message = "Email is required")
         @Email(message = "Invalid email format")
-        String cpnEmail,
-
-        Date cpnDate) {}
+        String email) {}
